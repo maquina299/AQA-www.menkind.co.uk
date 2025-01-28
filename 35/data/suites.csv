@@ -1,0 +1,3 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","15594","HomePageLoadsSuccessfully","","Tue Jan 28 13:29:32 GMT 2025","passed","Tue Jan 28 13:29:47 GMT 2025","","www.menkind.co.uk.Tests.HomePageTests","www.menkind.co.uk.Tests.HomePageTests",""
+"","14668","LoginSuccessful","","Tue Jan 28 13:29:47 GMT 2025","passed","Tue Jan 28 13:30:02 GMT 2025","","www.menkind.co.uk.Tests.HomePageTests","www.menkind.co.uk.Tests.HomePageTests",""

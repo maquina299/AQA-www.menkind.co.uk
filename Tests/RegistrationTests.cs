@@ -92,7 +92,7 @@ namespace www.menkind.co.uk.Tests
             {
                 _driver?.TakeScreenshot().SaveAsFile("success_screenshot.png");
                 // Close the browser
-                _basePage?.TearDown();
+                QuitDriver();
                 _driver?.Dispose();
             }
         }

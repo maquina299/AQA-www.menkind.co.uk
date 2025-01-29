@@ -2,7 +2,7 @@
 {
     public class BaseTest
     {
-        protected static IWebDriver? _driver;
+        protected  IWebDriver? _driver;
         public WebDriverWait? _wait;
         public void NavigateToUrl(string url) => _driver?.Navigate().GoToUrl(url);
 
@@ -21,7 +21,7 @@
             return options;
         }
         [SetUp]
-        public void InitializeDriver()
+        protected void InitializeDriver()
         {
             if (!_isDriverInitialized)
             {
@@ -34,7 +34,7 @@
 
 
         [TearDown]
-        public void QuitDriver()
+        protected void QuitDriver()
         {
             if (_driver != null)
         {

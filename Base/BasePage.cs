@@ -5,7 +5,7 @@ namespace www.menkind.co.uk.Base
     public class BasePage
     {
         protected IWebDriver? _driver;
-
+        private readonly WebDriverWait _wait;
         protected static readonly Logger Logger;
 
         static BasePage()
@@ -15,14 +15,17 @@ namespace www.menkind.co.uk.Base
             LogManager.Configuration = config;
             Logger = LogManager.GetCurrentClassLogger();
         }
-        public BasePage(IWebDriver? driver)
+        public BasePage(IWebDriver driver)
         {
-            _driver = driver;
+            _driver = driver ?? throw new ArgumentNullException(nameof(driver));
+            _wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(5));
         }
+
         public void InitializeDriver()
         {
             if (_driver == null)
             {
+
                 ChromeOptions options = new();
                 // options.AddArgument("--headless"); options.AddArgument("--no-sandbox"); options.AddArgument("--disable-dev-shm-usage");
                
@@ -39,23 +42,6 @@ namespace www.menkind.co.uk.Base
                 throw new InvalidOperationException("Driver is not initialized.");
             }
             return _driver;
-        }
-        public void NavigateToUrl(string url)
-        {
-            if (_driver == null)
-            {
-                throw new InvalidOperationException("WebDriver is not initialized.");
-            }
-            _driver.Navigate().GoToUrl(url);
-        }
-        public void TearDown()
-        {
-            if (_driver != null)
-            {
-                _driver.Quit();
-                _driver.Dispose();
-                _driver = null;
-            }
         }
 
         public void HandleModals()

@@ -12,50 +12,66 @@ namespace www.menkind.co.uk.Tests
     [AllureNUnit]
     [AllureSuite("Homepage")]
     [Obsolete]
-    public class HomePageTests
+    public class HomePageTests : BaseTest
     {
-        private IWebDriver? _driver;
-        private BasePage? _basePage;
-        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
+        protected override ChromeOptions GetDriverOptions()
+    {
+        ChromeOptions options = base.GetDriverOptions();
 
+        // Enable images ONLY for HomePageLoadsSuccessfully
+        if (TestContext.CurrentContext.Test.Name == nameof(HomePageLoadsSuccessfully))
+        {
+            options.AddUserProfilePreference("profile.default_content_setting_values.images", 1);
+        }
 
-        [SetUp]
+        return options;
+    }
 
+    private HomePageObject _homePage;
+
+    [SetUp]
+    public void SetUp()
+    {
+        InitializeDriver();  // Uses overridden options
+        _driver.Navigate().GoToUrl(TestData.HomePageURL);
+        _homePage = new HomePageObject(_driver);
+        _homePage.HandleModals();
+    }
         //setup with enabling the images for the homepageloads test
-        public void SetUp()
-        {
-            bool enableImages = TestContext.CurrentContext.Test.Name == nameof(HomePageLoadsSuccessfully);
-            InitializeDriverWithOptions(enableImages);
-            _basePage = new BasePage(_driver);
+        /* public void SetUp()
+         {
+             bool enableImages = TestContext.CurrentContext.Test.Name == nameof(HomePageLoadsSuccessfully);
+             InitializeDriverWithOptions(enableImages);
+             _basePage = new BasePage(_driver);
 
-            _basePage.NavigateToUrl(TestData.HomePageURL);
-            _basePage.HandleModals();
-        }
+             _basePage.NavigateToUrl(TestData.HomePageURL);
+             _basePage.HandleModals();
+         }
 
-        private void InitializeDriverWithOptions(bool enableImages)
-        {
-            ChromeOptions options = new();
+         private void InitializeDriverWithOptions(bool enableImages)
+         {
+             ChromeOptions options = new();
 
-            if (!enableImages)
-            {
-                // Disable image loading
-                options.AddUserProfilePreference("profile.default_content_setting_values.images", 2);
-            }
+             if (!enableImages)
+             {
+                 // Disable image loading
+                 options.AddUserProfilePreference("profile.default_content_setting_values.images", 2);
+             }
 
-            _driver = new ChromeDriver(options);
-            _driver.Manage().Window.Maximize();
-        }
-        //standard ver of setup
-        /*public void SetUp()
-        {           
-            _basePage = new BasePage(null);
-            _basePage.InitializeDriver();
-            _driver = _basePage.GetDriver();
+             _driver = new ChromeDriver(options);
+             _driver.Manage().Window.Maximize();
+         }
+         //standard ver of setup
+         /*public void SetUp()
+         {           
+             _basePage = new BasePage(null);
+             _basePage.InitializeDriver();
+             _driver = _basePage.GetDriver();
 
-            // Navigate to the homepage
-            _basePage.NavigateToUrl("https://www.menkind.co.uk/");
-            _basePage.HandleModals();
-        }*/
+             // Navigate to the homepage
+             _basePage.NavigateToUrl("https://www.menkind.co.uk/");
+             _basePage.HandleModals();
+         }*/
 
         [Test]
         [Category("Smoke")]
@@ -111,11 +127,6 @@ namespace www.menkind.co.uk.Tests
             Logger.Info("User is logged in successfully");
         }
 
-        [TearDown]
-        public void TearDown()
-        {
-            _basePage?.TearDown();
-            _driver?.Dispose();
-        }
+
     }
 }

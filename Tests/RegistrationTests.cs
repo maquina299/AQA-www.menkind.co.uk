@@ -9,25 +9,21 @@ namespace www.menkind.co.uk.Tests
     [AllureSuite("Main suite")]
     [AllureSubSuite("Registration Page")]
     [Obsolete]
-    public class RegistrationTests
+    public class RegistrationTests : BaseTest
     {
-        private IWebDriver? _driver;
-        private WebDriverWait? _wait;
-        private BasePage? _basePage;
+        private BasePage _basePage;
         private bool _testFailed = false;
-        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
 
 
         [SetUp]
 
         public void SetUp()
         {
-            _basePage = new BasePage(null);
-            _basePage.InitializeDriver();
-            _driver = _basePage.GetDriver(); // Initialize _driver
-            _wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(5)); // Initialize _wait
+            InitializeDriver();
+            _basePage = new BasePage(_driver);
+
             // Navigate to the registration page
-            _basePage.NavigateToUrl(TestData.RegistrationPageURL);
+            NavigateToUrl(TestData.RegistrationPageURL);
             _basePage.HandleModals();
         }
 

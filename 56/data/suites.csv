@@ -1,7 +1,0 @@
-"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","8630","SoldItem_ShouldCauseOOSmessage","","Thu Feb 06 12:13:31 GMT 2025","passed","Thu Feb 06 12:13:39 GMT 2025","","www.menkind.co.uk.Tests.ProductPageTests","www.menkind.co.uk.Tests.ProductPageTests",""
-"","7062","UserRegistration_ShouldSucceed","","Thu Feb 06 12:13:45 GMT 2025","passed","Thu Feb 06 12:13:52 GMT 2025","","www.menkind.co.uk.Tests.RegistrationTests","www.menkind.co.uk.Tests.RegistrationTests",""
-"","10020","SearchFrame_ShouldDisplayResults_CloseAfterOutsideClick","","Thu Feb 06 12:13:52 GMT 2025","passed","Thu Feb 06 12:14:02 GMT 2025","","www.menkind.co.uk.Tests.SearchTests","www.menkind.co.uk.Tests.SearchTests",""
-"","12069","AddItemToCart_ShouldUpdateCartIcon","","Thu Feb 06 12:13:19 GMT 2025","passed","Thu Feb 06 12:13:31 GMT 2025","","www.menkind.co.uk.Tests.ProductPageTests","www.menkind.co.uk.Tests.ProductPageTests",""
-"","5573","LoginSuccessful","","Thu Feb 06 12:13:39 GMT 2025","failed","Thu Feb 06 12:13:45 GMT 2025","","www.menkind.co.uk.Tests.HomePageTests","www.menkind.co.uk.Tests.HomePageTests",""
-"","5179","HomePageLoadsSuccessfully","","Thu Feb 06 12:13:39 GMT 2025","failed","Thu Feb 06 12:13:45 GMT 2025","","www.menkind.co.uk.Tests.HomePageTests","www.menkind.co.uk.Tests.HomePageTests",""

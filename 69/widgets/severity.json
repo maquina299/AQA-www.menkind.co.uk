@@ -1,0 +1,1 @@
+[{"uid":"c7cbd0fd52faddae","name":"AddItemToCart_ShouldUpdateCartIcon","time":{"start":1739199677429,"stop":1739199706205,"duration":28776},"status":"passed","severity":"normal"},{"uid":"f2085f578afafc39","name":"HomePageLoadsSuccessfully","time":{"start":1739199677429,"stop":1739199700567,"duration":23138},"status":"passed","severity":"normal"}]

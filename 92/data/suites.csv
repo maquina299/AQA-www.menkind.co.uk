@@ -1,0 +1,4 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","30787","HomePageLoadsSuccessfully","","Tue Feb 18 06:43:47 GMT 2025","passed","Tue Feb 18 06:44:18 GMT 2025","","www.menkind.co.uk.Tests.HomePageTests","www.menkind.co.uk.Tests.HomePageTests",""
+"","35584","AddItemToCart_ShouldUpdateCartIcon","","Tue Feb 18 06:43:47 GMT 2025","passed","Tue Feb 18 06:44:23 GMT 2025","","www.menkind.co.uk.Tests.ProductPageTests","www.menkind.co.uk.Tests.ProductPageTests",""
+"","31566","ScreenshotTest","","Tue Feb 18 06:43:47 GMT 2025","passed","Tue Feb 18 06:44:19 GMT 2025","","www.menkind.co.uk.Tests.ProductPageTests","www.menkind.co.uk.Tests.ProductPageTests",""
